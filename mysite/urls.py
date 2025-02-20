@@ -14,9 +14,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),  # Attila adta hozzá 2025. február 11-én
 ]
+
+
+'''
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),     # Attila adta hozzá 2025. február 11-én
+    # re_path(r'^articles/(?P<year>[0-9]{4})/$', views.year_archive), ehhez meg kell hívni a re-path a path után
+]
+]
+'''
